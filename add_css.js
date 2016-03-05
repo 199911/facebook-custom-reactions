@@ -23,5 +23,12 @@ chrome.runtime.onMessage.addListener(
             remove_reactions_css(reaction_css);
         }
         add_reactions_css(request.url, request.url);
+        // store the options
+        localStorage.setItem("url", request.url);
     }
 );
+
+var default_url = localStorage.getItem("url");
+if ( default_url ){
+    reaction_css = add_reactions_css(default_url,default_url);
+}
