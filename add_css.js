@@ -22,6 +22,6 @@ chrome.runtime.onMessage.addListener(
         if (reaction_css) {
             remove_reactions_css(reaction_css);
         }
-        add_reactions_css(request.small_url, request.large_url);
+        add_reactions_css(request.url, request.url);
     }
 );

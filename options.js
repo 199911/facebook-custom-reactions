@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var inputs = document.querySelectorAll('input[name]')
         for ( var i = 0; i < inputs.length; ++i ){
             var element = inputs[i];
-            data[element.getAttribute('name')] = element.getAttribute('value');
+            data[element.getAttribute('name')] = element.value;
         }
         console.log( data );
         send(data);
