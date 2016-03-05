@@ -1,16 +1,31 @@
 <html>
 <head>
     <title>Facbook Custom Reaction Options</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" charset="utf-8">
 </head>
-<body>
-    <form action="action_page.php">
-        Reactions name:
-        <input type="text" name="name" value="">
-        Icons URL: 
-        <input type="text" name="url" value="">
-        <input type="submit" value="Submit">
-    </form>
-    <button>Use facebook default reactions</button>
+<body style='padding: 20px'>
+    <div class="container" style='width: 400px;'>
+        <form action="action_page.php">
+            <fieldset class="form-group">
+                <label for="name">Reactions Name</label>
+                <input 
+                    type="text" class="form-control" id="name" name="name"
+                    placeholder="What is the theme of these icons?"
+                >
+            </fieldset>
+            <fieldset class="form-group">
+                <label for="url">Icons URL</label>
+                <input 
+                    type="text" class="form-control" id="url" name="url"
+                    placeholder="https://www.facebook.com/rsrc.php/v2/yi/r/rXRN3J81jEw.png"
+                >
+            </fieldset>
+        </form>
+        <div class="row">
+            <button id="set-btn" type="button" class="btn btn-primary col-xs-6">Set reaction</button>
+            <button id="reset-btn" type="button" class="btn btn-warning col-xs-6">Reset</button>
+        </div>
+    </div>
 </body>
 <script src="options.js"></script>
 </html>

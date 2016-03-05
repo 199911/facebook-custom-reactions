@@ -6,7 +6,7 @@ function send(data) {
     });
 }
 document.addEventListener('DOMContentLoaded', function() {
-    var submit_btn = document.querySelector('input[type="submit"]');
+    var submit_btn = document.getElementById('set-btn');
     submit_btn.addEventListener('click', function(e){
         event.preventDefault();
         var data = {
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         send(data);
     });
-    var reset_btn = document.querySelector('button');
+    var reset_btn = document.getElementById('reset-btn');
     reset_btn.addEventListener('click', function(e){
         send({
             "action" : "remove"
