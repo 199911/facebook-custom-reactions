@@ -1,5 +1,6 @@
 
 var head = document.getElementsByTagName("head")[0];
+var reaction_css = undefined;
 
 var add_reactions_css = function(small_url, large_url) {
     var cssStyle = document.createElement('style');
@@ -18,10 +19,13 @@ var remove_reactions_css = function(cssStyle) {
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         console.log(request);
-        add_reactions_css(
-            "https://raw.githubusercontent.com/FGrante/trump-reactions/master/img/trump-reactions.png",
-            "https://raw.githubusercontent.com/FGrante/trump-reactions/master/img/trump-reactions%402x.png"
-        );
-        // add_reactions_css(request.small_url, request.large_url);
+        // add_reactions_css(
+        //     "https://raw.githubusercontent.com/FGrante/trump-reactions/master/img/trump-reactions.png",
+        //     "https://raw.githubusercontent.com/FGrante/trump-reactions/master/img/trump-reactions%402x.png"
+        // );
+        if (reaction_css) {
+            remove_reactions_css(reaction_css);
+        }
+        add_reactions_css(request.small_url, request.large_url);
     }
 );
