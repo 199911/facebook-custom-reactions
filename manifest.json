@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+
+  "name": "Facebook Custom Reactions",
+  "description": "This give reaction to all posts in current facebook page",
+  "version": "0.1",
+
+  "browser_action": {
+    "default_popup": "options.html"
+  },
+  "permissions": [
+    "*://*.facebook.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.facebook.com/*"
+      ],
+      "js": [
+        "add_css.js"
+      ]
+    }
+  ]
+}
