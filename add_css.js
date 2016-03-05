@@ -19,10 +19,6 @@ var remove_reactions_css = function(cssStyle) {
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         console.log(request);
-        // add_reactions_css(
-        //     "https://raw.githubusercontent.com/FGrante/trump-reactions/master/img/trump-reactions.png",
-        //     "https://raw.githubusercontent.com/FGrante/trump-reactions/master/img/trump-reactions%402x.png"
-        // );
         if (reaction_css) {
             remove_reactions_css(reaction_css);
         }
