@@ -13,18 +13,28 @@ var add_reactions_css = function(small_url, large_url) {
     return cssStyle;
 };
 var remove_reactions_css = function(cssStyle) {
-    head.removeChile(cssStyle);
+    head.removeChild(cssStyle);
+    return undefined;
 }
 
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         console.log(request);
-        if (reaction_css) {
-            remove_reactions_css(reaction_css);
+        if (request.action === 'set') {
+            if (reaction_css) {
+                reaction_css = remove_reactions_css(reaction_css);
+            }
+            reaction_css = add_reactions_css(request.url, request.url);
+            // store the options
+            localStorage.setItem("url", request.url);
+        } else if (request.action === 'remove') {
+            if (reaction_css) {
+                reaction_css = remove_reactions_css(reaction_css);
+            }
+            localStorage.removeItem("url");
+        } else {
+            console.log('unknown action:' + JSON.stringify(request));
         }
-        add_reactions_css(request.url, request.url);
-        // store the options
-        localStorage.setItem("url", request.url);
     }
 );
 
